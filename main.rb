@@ -12,18 +12,23 @@ class Button
     @foreground_color = foreground_color
     @is_dark_mode = is_dark_mode
   end
+
+  def dark_paint
+    paint(label_text, x_position, y_position, hex_color_code - 10, '#111111')
+  end
+
+  def light_paint
+    paint(label_text, x_position, y_position, hex_color_code + 10, '#E0E0E0')
+  end
+
 end
 
 def draw_button(label_text, x_position, y_position, foreground_color, is_dark_mode) 
    ## Poorly named parameters
-  if dark_mode
-    # darken foreground color for dark mode
-    # ^^^ Uneeded comments, try using extract function/extract class, and or change function name to make this function more readable.
-    paint(label_text, x_position, y_position, hex_color_code - 10, '#111111') ## Duplicated code
+  if button.is_dark_mode
+    button.dark_paint
   else
-    # lighten foreground color for non-dark mode
-    # ^^^ Uneeded comments, try using extract function, and or change function name to make this function more readable.
-    paint(label_text, x_position, y_position, hex_color_code + 10, '#E0E0E0')## Duplicated code
+    button.light_paint
   end
 end
 
