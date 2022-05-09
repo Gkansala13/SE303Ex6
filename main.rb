@@ -4,7 +4,7 @@ class Button
   attr_reader :y_position
   attr_reader :foreground_color
   attr_reader :is_dark_mode
-
+ 
   def initialize(label_text, x_position, y_position, foreground_color, is_dark_mode)
     @label_text, 
     @x_position = x_position
@@ -24,7 +24,6 @@ class Button
 end
 
 def draw_button(label_text, x_position, y_position, foreground_color, is_dark_mode) 
-   ## Poorly named parameters
   if button.is_dark_mode
     button.dark_paint
   else
@@ -32,3 +31,12 @@ def draw_button(label_text, x_position, y_position, foreground_color, is_dark_mo
   end
 end
 
+# What smells do you identify? For each smell, what refactoring did you choose to apply?
+# Comments, instead we used extract function
+# Data clumps, used extract class
+# Duplicated code
+# 
+# Which smell did you address first, and why did you choose that first?
+# I fixed the parameter names to be a bit more descriptive.
+# Then I extracted the class, and then added the functions to the new class.
+# Then I finished by deleteing the old un needed comments.
